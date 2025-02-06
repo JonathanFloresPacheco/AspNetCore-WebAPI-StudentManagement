@@ -19,7 +19,7 @@ namespace WebApiFirstExample.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Department>>> GetAll()
         {
-            return await _context.Departments.ToListAsync();  // Devuelve directamente la lista sin usar Ok()
+            return await _context.Departments.ToListAsync();
         }
 
         [HttpGet("{id}")]
@@ -27,7 +27,7 @@ namespace WebApiFirstExample.Controllers
         {
             var Department = await _context.Departments.FindAsync(id);
             if (Department == null) return NotFound();
-            return Department;  // Devuelve el estudiante directamente
+            return Department; 
         }
 
         [HttpPost]
@@ -62,7 +62,7 @@ namespace WebApiFirstExample.Controllers
                 }
             }
 
-            return NoContent();  // Devuelve 204 No Content si la actualización es exitosa
+            return NoContent();
         }
 
         [HttpDelete("{id}")]
@@ -73,7 +73,7 @@ namespace WebApiFirstExample.Controllers
 
             _context.Departments.Remove(Department);
             await _context.SaveChangesAsync();
-            return NoContent();  // Devuelve 204 No Content si la eliminación es exitosa
+            return NoContent();  
         }
     }
 }
